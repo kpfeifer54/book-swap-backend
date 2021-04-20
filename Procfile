@@ -1,1 +1,1 @@
-gunicorn book-swap-backend.wsgi
+gunicorn book-swap.wsgi
