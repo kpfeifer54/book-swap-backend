@@ -14,7 +14,7 @@ class Book(models.Model):
 
 class MyBookList(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,  related_name='book_list')
-    books = models.ManyToManyField(Book, related_name='book_lists')
+    books = models.ManyToManyField(Book, related_name='book_lists', blank=True)
 
     @receiver(post_save, sender=User)
     def create_user_booklist(sender, instance, created, **kwargs):
@@ -27,7 +27,7 @@ class MyBookList(models.Model):
 
 class WishList(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,  related_name='wish_list')
-    books = models.ManyToManyField(Book, related_name='wish_lists')
+    books = models.ManyToManyField(Book, related_name='wish_lists', default=[], blank=True)
     
     @receiver(post_save, sender=User)
     def create_user_wishlist(sender, instance, created, **kwargs):
