@@ -10,7 +10,7 @@ class Book(models.Model):
     book_image = models.TextField()
 
     def __str__(self):
-        return f"title: {self.title}, author: {self.author}, description: {self.description}, image: {self.book_image}"
+        return f"title: {self.title}, author: {self.author}, description: {self.description}, book_image: {self.book_image}"
 
 class MyBookList(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE,  related_name='book_list')
